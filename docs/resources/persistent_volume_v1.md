@@ -76,6 +76,7 @@ Optional:
 - `gce_persistent_disk` (Block List, Max: 1) Represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk (see [below for nested schema](#nestedblock--spec--persistent_volume_source--gce_persistent_disk))
 - `glusterfs` (Block List, Max: 1) Represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: https://examples.k8s.io/volumes/glusterfs/README.md (see [below for nested schema](#nestedblock--spec--persistent_volume_source--glusterfs))
 - `host_path` (Block List, Max: 1) Represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath (see [below for nested schema](#nestedblock--spec--persistent_volume_source--host_path))
+- `image` (Block List, Max: 1) Represents an OCI image/artifact volume source that is mounted as a volume on the host and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#image (see [below for nested schema](#nestedblock--spec--persistent_volume_source--image))
 - `iscsi` (Block List, Max: 1) Represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. (see [below for nested schema](#nestedblock--spec--persistent_volume_source--iscsi))
 - `local` (Block List, Max: 1) Represents a mounted local storage device such as a disk, partition or directory. Local volumes can only be used as a statically created PersistentVolume. Dynamic provisioning is not supported yet. More info: https://kubernetes.io/docs/concepts/storage/volumes#local (see [below for nested schema](#nestedblock--spec--persistent_volume_source--local))
 - `nfs` (Block List, Max: 1) Represents an NFS mount on the host. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs (see [below for nested schema](#nestedblock--spec--persistent_volume_source--nfs))
@@ -302,6 +303,15 @@ Optional:
 
 - `path` (String) Path of the directory on the host. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
 - `type` (String) Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+
+
+<a id="nestedblock--spec--persistent_volume_source--image"></a>
+### Nested Schema for `spec.persistent_volume_source.image`
+
+Optional:
+
+- `pull_policy` (String) Policy for pulling OCI objects. Possible values: Always, Never, IfNotPresent.
+- `reference` (String) The image/artifact reference to mount as a volume. Behaves in the same way as pod.spec.containers[*].image.
 
 
 <a id="nestedblock--spec--persistent_volume_source--iscsi"></a>

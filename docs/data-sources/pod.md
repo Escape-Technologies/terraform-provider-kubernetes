@@ -1467,6 +1467,7 @@ Read-Only:
 - `git_repo` (List of Object) (see [below for nested schema](#nestedobjatt--spec--volume--git_repo))
 - `glusterfs` (List of Object) (see [below for nested schema](#nestedobjatt--spec--volume--glusterfs))
 - `host_path` (List of Object) (see [below for nested schema](#nestedobjatt--spec--volume--host_path))
+- `image` (List of Object) (see [below for nested schema](#nestedobjatt--spec--volume--image))
 - `iscsi` (List of Object) (see [below for nested schema](#nestedobjatt--spec--volume--iscsi))
 - `local` (List of Object) (see [below for nested schema](#nestedobjatt--spec--volume--local))
 - `name` (String)
@@ -1787,6 +1788,15 @@ Read-Only:
 
 - `path` (String)
 - `type` (String)
+
+
+<a id="nestedobjatt--spec--volume--image"></a>
+### Nested Schema for `spec.volume.image`
+
+Read-Only:
+
+- `pull_policy` (String)
+- `reference` (String)
 
 
 <a id="nestedobjatt--spec--volume--iscsi"></a>
